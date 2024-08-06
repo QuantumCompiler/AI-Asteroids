@@ -47,7 +47,7 @@ scores = dqn()
 # Load trained model
 agent.qnetwork_local.load_state_dict(torch.load('checkpoint.pth', weights_only=True))
 
-env = gym.make("ALE/Asteroids-v5", render_mode="human")
+env = gym.make("ALE/Asteroids-v5")
 
 def play_game(env, agent, n_episodes=1):
     for i_episode in range(1, n_episodes+1):
