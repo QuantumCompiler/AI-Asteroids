@@ -245,21 +245,3 @@ class DQNAgent:
     '''
     def decay_epsilon(self):
         self.eps = max(self.eps_min, self.eps_decay * self.eps)
-
-''' convert_experiences_to_tensors - Converts experiences to tensors
-        Input:
-            experiences: list - list of experiences
-        Algorithm:
-            * Unzip the experiences
-            * Convert the experiences to tensors
-        Output:
-            tuple - tuple of tensors
-'''
-def convert_experiences_to_tensors(experiences):
-    batch = list(zip(*experiences))
-    states = torch.from_numpy(np.vstack(batch[0])).float().to(device)
-    actions = torch.from_numpy(np.vstack(batch[1])).long().to(device)
-    rewards = torch.from_numpy(np.vstack(batch[2])).float().to(device)
-    next_states = torch.from_numpy(np.vstack(batch[3])).float().to(device)
-    dones = torch.from_numpy(np.vstack(batch[4]).astype(np.uint8)).float().to(device)
-    return states, actions, rewards, next_states, dones
