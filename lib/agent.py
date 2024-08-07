@@ -59,7 +59,6 @@ class DQNAgent:
         with torch.no_grad():
             action_values = self.qnetwork_local(state)
         self.qnetwork_local.train()
-
         if np.random.rand() > eps:
             return np.argmax(action_values.cpu().data.numpy())
         else:
@@ -79,17 +78,13 @@ class DQNAgent:
 
     def learn(self, experiences, gamma):
         states, actions, rewards, next_states, dones = experiences
-
         Q_targets_next = self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)
         Q_targets = rewards + (gamma * Q_targets_next * (1 - dones))
-
         Q_expected = self.qnetwork_local(states).gather(1, actions)
-
         loss = F.mse_loss(Q_expected, Q_targets)
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-
         self.soft_update(self.qnetwork_local, self.qnetwork_target, self.tau)
 
     def soft_update(self, local_model, target_model, tau):
