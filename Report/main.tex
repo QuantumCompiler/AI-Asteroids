@@ -203,100 +203,60 @@ the user is asked to select a name for the agent. This name is then what the age
 
 \subsection{Training Results}
 
-For this project, there were a total of 5 different training sessions that were run. From this, five agents were created. Here is how they were created:
+The training process for these models consisted of changing the number of episodes for each agent. In total, there were twelve agents that were trained with different numbers of episodes for each. The
+agents and their names are as follows:
 
 \begin{itemize}
-	\item \textbf{Agent 10} - 10 episodes of training.
-	\item \textbf{Agent 20} - 20 episodes of training.
-	\item \textbf{Agent 30} - 30 episodes of training.
-	\item \textbf{Agent 40} - 40 episodes of training.
-	\item \textbf{Agent 50} - 50 episodes of training.
+	\item \textbf{Agent 10} - 10 episodes.
+	\item \textbf{Agent 20} - 20 episodes.
+	\item \textbf{Agent 30} - 30 episodes.
+	\item \textbf{Agent 40} - 40 episodes.
+	\item \textbf{Agent 50} - 50 episodes.
+	\item \textbf{Agent 100} - 100 episodes.
+	\item \textbf{Agent 200} - 200 episodes.
+	\item \textbf{Agent 300} - 300 episodes.
+	\item \textbf{Agent 400} - 400 episodes.
+	\item \textbf{Agent 500} - 500 episodes.
+	\item \textbf{Agent 1000} - 1000 episodes.
+	\item \textbf{Agent 2000} - 2000 episodes.
 \end{itemize}
 
-For each agent, the current episode score and the running average were updated and store in a csv file that was saved to the `\textbf{Training Results/}' directory. The running average and current episode
-score for each agent were plotted with the use \texttt{matplotlib} to visualize the training process. The results for Agent 10 can be seen below.
+For each agent that was trained, the episode number, score of the current episode, and the running average score of the current training session were recorded and saved to a csv file. The csv files
+for the training part of this project can be found from the root directory of this repository in `\textbf{Training Results/}'. For every training episode, the initial $\epsilon$ value was set to 1.0,
+the end for the $\epsilon$ value was set to 0.01, and the decay rate for $\epsilon$ was set to 0.995. The maximum number of time steps per episode was set to 1000. These parameters were all held constant
+across the training process.
+
+After the training of the agents completed, the results were then analyzed to determine which agent performed best. The metric that was used to determine the best agent was the average score of the agent
+after all of its episodes concluded. The average score of each agent can be seen in the table below:
 
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/Agent 10 Training.png}
-\end{center}
-
-Agent 20 can be seen below.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/Agent 20 Training.png}
-\end{center}
-
-Agent 30 can be seen below.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/Agent 30 Training.png}
-\end{center}
-
-Agent 40 can be seen below.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/Agent 40 Training.png}
-\end{center}
-
-And lastly, Agent 50 can be seen below.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/Agent 50 Training.png}
-\end{center}
-
-Comparing all of these together, the final results of the training for each agent can be visualized in the figure below.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/All Agent Training.png}
-\end{center}
-
-The final averages for each agent can be seen in the table below.
-
-\begin{center}
-	\begin{tabular}{|c|c|}
-		\hline
-		\textbf{Agent} & \textbf{Final Average} \\
-		\hline
-		Agent 10 & 915.0 \\ \hline
-		Agent 20 & 702.0 \\ \hline
-		Agent 30 & 742.33 \\ \hline
-		Agent 40 & 711.0 \\ \hline
-		Agent 50 & 766.4 \\ \hline
+	\begin{tabular}[ht]{|c|c|c|c|}
+		\hline \textbf{Agent} & \textbf{Average} & \textbf{Min} & \textbf{Max} \\ \hline
+		Agent 10 & 915.0 & 180.0 & 1180.0 \\ \hline
+		Agent 20 & 702.0 & 240.0 & 1080.0 \\ \hline
+		Agent 30 & 742.33 & 210.0 & 1180.0 \\ \hline
+		Agent 40 & 711.0 & 160.0 & 1180.0 \\ \hline
+		Agent 50 & 766.40 & 210.0 & 1180.0 \\ \hline
+		Agent 100 & 740.80 & 130.0 & 1440.0 \\ \hline
+		Agent 200 & 835.80 & 160.0 & 1390.0 \\ \hline
+		Agent 300 & 701.40 & 130.0 & 1590.0 \\ \hline
+		Agent 400 & 525.10 & 110.0 & 1280.0 \\ \hline
+		Agent 500 & 371.0 & 80.0 & 1280.0 \\ \hline
+		Agent 1000 & 439.90 & 110.0 & 1610.0 \\ \hline
+		Agent 2000 & & & \\ \hline
 	\end{tabular}
 \end{center}
 
-From first glance, it seems like Agent 10 performed the best out of all the agents. However, when we go to test the agents in the environment, we see a slightly different story.
+The agent that had the highest average score during training was Agent 10, the agent with the lowest score during training happened to be Agent 500, and the agent with the highest score during training was
+Agent 1000. There really is not a correlation between the number of episodes and the average score of the agent, at least during training that is. In fact, some of the agents that had the higher number of
+episodes had lower averages in comparison to those of lower episodes.
+
+If you look at the results from Agent 500 and Agent 20 for example, Agent 500 had an average score of just 371.0 while Agent 20 had an average score of 702.0. The minimum score for Agent 500 was
+smaller than that of Agent 20's but Agent 500 did have a higher single episode score than that of Agent 20. In light of this, we can't really use this data to determine which agent is actually the best.
+To determine this, we need to evaluate the agents in the environment.
 
 \section{Evaluation}
 
-Once the agents were trained, they were then evaluated in the Asteroids-v5 environment. The evaluation process consisted of the user selecting which agent they would like to evaluate, and then having
-it play through one game in the environment. The evaluation process was done by running the `\textbf{lib/main.py}' file and then selecting the agent that was to be evaluated.
-
-\subsection{Evaluation Results}
-
-Similar to the training of the agents, the episode number and the subsequent score were stored in a csv file that was saved to the `\textbf{Evaluation Results/}' directory. After evaluating the agents,
-the following results were produced.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{Figures/All Agent Testing.png}
-\end{center}
-
-The above image depicts the results of an agent paired with the average score of its training. The results for each agent after evaluating and comparing them to their training averages can be seen in the table below.
-
-\begin{center}
-	\begin{tabular}{|c|c|c|}
-		\hline
-		\textbf{Agent} & \textbf{Final Average} & \textbf{Evaluation Score} \\
-		\hline
-		Agent 10 & 915.0 & \color{red}{140.0} \\ \hline
-		Agent 20 & 702.0 & \color{red}{460.0} \\ \hline
-		Agent 30 & 742.33 & \color{green}{880.0} \\ \hline
-		Agent 40 & 711.0 & \color{green}{830.0} \\ \hline
-		Agent 50 & 766.4 & \color{red}{110.0} \\ \hline
-	\end{tabular}
-\end{center}
-
-From the aforementioned table and figure, we can see that there were two agents that performed better than their training average, Agents 30 and 40. The other agents, Agents 10, 20, and 50, all performed
-worse than when they were being trained.
+Once the agents were trained they could be evaluated for how they performed. The evaluation
 
 \end{document}

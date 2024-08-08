@@ -1,6 +1,6 @@
 from agent import *
 
-def dqn(n_episodes=100, max_t=1000, eps_start=1.0, eps_end=0.01, eps_decay=0.995, agent_name="New_Agent"):
+def dqn(n_episodes=2000, max_t=1000, eps_start=1.0, eps_end=0.01, eps_decay=0.995, agent_name="New_Agent"):
     env = gym.make("ALE/Asteroids-v5")
     input_shape = env.observation_space.shape
     agent = DQNAgent(input_shape=input_shape, action_size=env.action_space.n, seed=0)

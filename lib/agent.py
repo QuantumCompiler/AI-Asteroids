@@ -6,6 +6,7 @@ from collections import deque
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
+import ale_py
 import os
 import csv
 
