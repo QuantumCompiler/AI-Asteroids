@@ -243,7 +243,7 @@ after all of its episodes concluded. The average score of each agent can be seen
 		Agent 400 & 525.10 & 110.0 & 1280.0 \\ \hline
 		Agent 500 & 371.0 & 80.0 & 1280.0 \\ \hline
 		Agent 1000 & 439.90 & 110.0 & 1610.0 \\ \hline
-		Agent 2000 & & & \\ \hline
+		Agent 2000 & 220.40 & 80.0 & 1620.0 \\ \hline
 	\end{tabular}
 \end{center}
 
@@ -257,6 +257,120 @@ To determine this, we need to evaluate the agents in the environment.
 
 \section{Evaluation}
 
-Once the agents were trained they could be evaluated for how they performed. The evaluation
+Once the agents were trained they could be evaluated for how they performed. The evaluation process consisted of running an already trained agent in the environment for a total of 100 episodes. Similar statistics
+were kept for the evaluation process as they were for the training process.
+
+\subsection{Evaluation Results}
+
+Upon evaluating the agents in the environment, the results for each agent are as follows:
+
+\begin{center}
+	\begin{tabular}[ht]{|c|c|c|c|}
+		\hline \textbf{Agent} & \textbf{Average} & \textbf{Min} & \textbf{Max} \\ \hline
+		Agent 10 & 975.70 & 180.0 & 2600.0 \\ \hline
+		Agent 20 & 925.10 & 210.0 & 1750.0 \\ \hline
+		Agent 30 & 924.10 & 110.0 & 2330.0 \\ \hline
+		Agent 40 & 969.20 & 180.0 & 2550.0 \\ \hline
+		Agent 50 & 916.70 & 160.0 & 2050.0 \\ \hline
+		Agent 100 & 911.30 & 210.0 & 2500.0 \\ \hline
+		Agent 200 & 941.80 & 230.0 & 2650.0 \\ \hline
+		Agent 300 & 941.20 & 140.0 & 2150.0 \\ \hline
+		Agent 400 & 872.80 & 160.0 & 1900.0 \\ \hline
+		Agent 500 & 966.70 & 110.0 & 2650.0 \\ \hline
+		Agent 1000 & 933.30 & 210.0 & 1760.0 \\ \hline
+		Agent 2000 & 898.90 & 180.0 & 2300.0 \\ \hline
+	\end{tabular}
+\end{center}
+
+Using the metric of average score, it was Agent 40 that performed the best during the evaluation process with an average score of 969.20. Agents 30 and 500 had the lowest score for a single episode at 
+110.0 while Agents 200 and 500 had the highest single episode score of 2650.0. For a more in depth look at the results from evaluating the agent in the environment, plots were created to depict the statistics
+of the agents in both the training and evaluation phases.
+
+Staring with Agent 10, the results for the training and evaluation phases can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 10.png}
+\end{center}
+
+Now, the results for Agent 20 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 20.png}
+\end{center}
+
+The results for Agent 30 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 30.png}
+\end{center}
+
+The results for Agent 40 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 40.png}
+\end{center}
+
+The results for Agent 50 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 50.png}
+\end{center}
+
+The results for Agent 100 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 100.png}
+\end{center}
+
+The results for Agent 200 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 200.png}
+\end{center}
+
+The results for Agent 300 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 300.png}
+\end{center}
+
+The results for Agent 400 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 400.png}
+\end{center}
+
+The results for Agent 500 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 500.png}
+\end{center}
+
+The results for Agent 1000 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 1000.png}
+\end{center}
+
+And lastly, the results for Agent 2000 can be seen below.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{Figures/Comparison/Agent 2000.png}
+\end{center}
+
+\section{Conclusion}
+
+During this process of training the models, it was found that the number of episodes that the agent was trained on did not necessarily correlate with the average score of the agent. In fact, some of 
+the agents that had the higher number of episodes had lower averages in comparison to those of lower episodes. This was an interesting find as it was expected that the agents that were trained on more
+episodes would have higher averages. This was not the case.
+
+In the evaluation process, it was found that the agent that performed the best was Agent 40 with an average score of 969.20. This was the highest average score of all the agents that were trained. The
+agent that performed the worst with the lowest average during evaluation was Agent 2000 with an average score of 898.90. The highest single episode score that was achieved during the evaluation process
+was by Agent 200 and Agent 500 with a score of 2650.0. The lowest single episode score that was achieved during the evaluation process was by Agents 30 and 500 with a score of 110.0.
+
+Further explorations of this project could include tweaking the hyperparameters of the agents to see if the average score of the agents could be improved. This could include changing the learning rate of
+the agents, the number of episodes that the agents are trained on, the number of time steps per episode, and the epsilon decay rate. By changing these hyperparameters, it could be possible to improve the
+average score of the agents. However, during this project, the hyperparameters were held constant to see how the agents would perform with the same parameters. And instead, the number of episodes that the
+agents were trained on was the only parameter that was changed.
 
 \end{document}
