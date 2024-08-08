@@ -282,7 +282,7 @@ Upon evaluating the agents in the environment, the results for each agent are as
 	\end{tabular}
 \end{center}
 
-Using the metric of average score, it was Agent 40 that performed the best during the evaluation process with an average score of 969.20. Agents 30 and 500 had the lowest score for a single episode at 
+Using the metric of average score, it was Agent 10 that performed the best during the evaluation process with an average score of 975.70. Agents 30 and 500 had the lowest score for a single episode at 
 110.0 while Agents 200 and 500 had the highest single episode score of 2650.0. For a more in depth look at the results from evaluating the agent in the environment, plots were created to depict the statistics
 of the agents in both the training and evaluation phases.
 
@@ -364,13 +364,29 @@ During this process of training the models, it was found that the number of epis
 the agents that had the higher number of episodes had lower averages in comparison to those of lower episodes. This was an interesting find as it was expected that the agents that were trained on more
 episodes would have higher averages. This was not the case.
 
-In the evaluation process, it was found that the agent that performed the best was Agent 40 with an average score of 969.20. This was the highest average score of all the agents that were trained. The
-agent that performed the worst with the lowest average during evaluation was Agent 2000 with an average score of 898.90. The highest single episode score that was achieved during the evaluation process
+In the evaluation process, it was found that the agent that performed the best was Agent 10 with an average score of 975.70. This was the highest average score of all the agents that were trained. The
+agent that performed the worst with the lowest average during evaluation was Agent 400 with an average score of 872.80. The highest single episode score that was achieved during the evaluation process
 was by Agent 200 and Agent 500 with a score of 2650.0. The lowest single episode score that was achieved during the evaluation process was by Agents 30 and 500 with a score of 110.0.
 
 Further explorations of this project could include tweaking the hyperparameters of the agents to see if the average score of the agents could be improved. This could include changing the learning rate of
 the agents, the number of episodes that the agents are trained on, the number of time steps per episode, and the epsilon decay rate. By changing these hyperparameters, it could be possible to improve the
 average score of the agents. However, during this project, the hyperparameters were held constant to see how the agents would perform with the same parameters. And instead, the number of episodes that the
 agents were trained on was the only parameter that was changed.
+
+\newpage
+
+\onecolumn
+
+\section{Sources / Links}
+
+\begin{itemize}
+	\item \textbf{Bellman Equation}: Wikipedia page for the Bellman Equation: \href{https://en.wikipedia.org/wiki/Bellman_equation}{Bellman Equation}
+	\item \textbf{Demonstration Link}: Link for where the demonstration of the project can be found: \href{https://drive.google.com/file/d/1H2AhFg420gchKzIcZ8_SeoNff2bgeKM_/view?usp=sharing}{Demonstration}
+	\item \textbf{GitHub Repository}: Repository where all of the source code for this project can be found: \href{https://github.com/QuantumCompiler/AI-Asteroids}{AI Asteroids}
+	\item \textbf{OpenAI Gymnasium}: Documentation used for OpenAI's Gymnasium: \href{https://gymnasium.farama.org/content/basic_usage/}{OpenAI Gymnasium}
+	\item \textbf{PyTorch}: Documentation used for PyTorch: \href{https://pytorch.org/docs/stable/index.html}{PyTorch}
+	\item \textbf{PyTorch Example}: Tutorial example for PyTorch: \href{https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html}{PyTorch Example}
+	\item \textbf{Q-Learning}: Wikipedia page for Q-Learning: \href{https://en.wikipedia.org/wiki/Q-learning}{Q-Learning}
+\end{itemize}
 
 \end{document}
